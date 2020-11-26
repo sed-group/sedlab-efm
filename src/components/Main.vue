@@ -19,7 +19,7 @@
             Welcome
           </v-card-title>
           <v-card-subtitle>
-            Get ready to mooooooodel!
+            to the Enhanced Function-Means modeller
           </v-card-subtitle>
           <v-card-text>
             <p>
