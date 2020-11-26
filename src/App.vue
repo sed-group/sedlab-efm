@@ -2,59 +2,96 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-img
+        class="mx-2"
+        src="favicon.png"
+        max-height="40"
+        max-width="40"
+        contain
+      ></v-img>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>SED</span>
+        <span class="font-weight-light">Lab</span> EF-M
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/sed-group/sedlab-efm"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">GitHub</span>
         <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+      <v-btn
+        @click="overlay = !overlay"
+        text
+      >
+        <span class="mr-2">Sign In</span>
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <Main/>
     </v-main>
+    <v-overlay :value="overlay">
+      <v-card
+        class="ma-2 pa-4"
+        width="344"
+        light
+      >
+        <v-form v-model="valid">
+          <v-container>
+            <v-row>
+              <h1>Work In Progress</h1>
+            </v-row>
+            <v-row>
+              <v-text-field
+                v-model="email"
+                label="E-mail"
+                required
+              ></v-text-field>
+            </v-row>
+            <v-row>
+              <v-text-field
+                v-model="password"
+                label="password"
+                required
+                :type="show1 ? 'text' : 'password'"
+              ></v-text-field>
+            </v-row>
+          </v-container>
+        </v-form>
+        <v-btn
+          color="error"
+          @click="overlay = false"
+        >
+          Close
+        </v-btn>
+      </v-card>
+    </v-overlay>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Main from './components/Main';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    Main,
   },
 
   data: () => ({
     //
+    overlay: false,
+    email: null,
+    password: null,
   }),
 };
 </script>
