@@ -19,7 +19,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://sedlab-catalog.netlify.app/"
+        href="https://systemsengineering.design/"
         target="_blank"
         text
       >
